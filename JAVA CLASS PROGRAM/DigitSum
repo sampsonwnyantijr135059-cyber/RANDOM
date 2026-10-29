@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class DigitSum {
+    public static void main(String[] args) {
+        // Create a Scanner object to take user input
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter an integer number: ");
+        long number = scanner.nextLong();
+        
+        // Handle negative numbers by converting to positive
+        long tempNumber = Math.abs(number);
+        long sum = 0;
+        
+        // Loop to extract and add each digit
+        while (tempNumber > 0) {
+            long digit = tempNumber % 10; // Extract the last digit
+            sum += digit;                 // Add the digit to sum
+            tempNumber /= 10;             // Remove the last digit
+        }
+        
+        // Display the final result
+        System.out.println("The sum of the digits of " + number + " is: " + sum);
+        
+        // Close the scanner resource
+        scanner.close();
+    }
+}
